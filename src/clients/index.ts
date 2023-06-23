@@ -2,6 +2,8 @@ import type { UserCred, Credentials } from '@/models/credentials';
 import { createClient, type User, type AuthError } from '@supabase/supabase-js';
 import { clientData } from './clientData';
 
+// TODO: fix client
+
 // import { Credentials } from '../models/credentials';
 // import { TCommonCard } from '../models/commonCard';
 
@@ -44,7 +46,7 @@ const signUp = async (values: Credentials): Promise<User | AuthError> => {
   return clientData(supabaseData);
 };
 
-const signIn = async (values: Credentials): Promise<User> => {
+const signIn = async (values: Credentials): Promise<User | AuthError> => {
   const supabaseData = await supabase.auth.signInWithPassword(values);
   return clientData(supabaseData);
 };

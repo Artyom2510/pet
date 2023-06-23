@@ -41,10 +41,8 @@ export const SignInForm = () => {
     }
   };
 
-  console.log(isValid);
-
   return (
-    <form onSubmit={handleSubmit(onSubmit)}>
+    <form onSubmit={event => void handleSubmit(onSubmit)(event)}>
       <input type='email' {...register('email')} />
       <input type='password' {...register('password')} />
       <button type='submit'>Sign In</button>
